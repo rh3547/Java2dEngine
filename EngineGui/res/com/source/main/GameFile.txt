@@ -1,0 +1,93 @@
+package com.PACKAGETITLE.main;
+
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
+import com.engine.main.Game;
+import com.PACKAGETITLE.screens.ScreenTITLEINITIALSMainMenu;
+
+public class TITLEINITIALSCore
+{
+	/***********************************
+	 * Game Variables
+	 **********************************/
+	private final Game game;
+	// The title to display at the top of the window
+	private String title = "GAMETITLE";
+	// The window's width
+	private int windowX = WINDOWX;
+	// the window's height
+	private int windowY = WINDOWY;
+	// The rate to update the game's rendering
+	private int fps = FPS;
+	// The rate to update the game's ticks
+	private int tps = TPS;
+	
+	// The user's operating system
+	private String OS = "";
+	
+	/**
+	 * Create a new game.
+	 */
+	public TITLEINITIALSCore()
+	{
+		// Create the game
+		game = new Game(title, windowX, windowY, fps, tps);
+		game.start();
+		
+		game.getWindow().setResizable(false);
+		
+		game.getCanvas().setScreenLoaded(false);
+		
+		game.setResourceLoader(new TITLEINITIALSResources(game));
+		game.setDebugScreen(null);
+		game.setResourcePack("default");
+		
+		// Detect the user's operating system
+		OS = game.getResourceLoader().getOS();
+		// Set the game's res and file paths based on OS
+		if (OS.equals("windows"))
+		{
+			game.setRespath("FILETITLE/res/");
+			game.setFilepath(System.getProperty("user.home") + "\\Documents\\" + title);
+		}
+		else if (OS.equals("mac"))
+		{
+			game.setRespath("FILETITLE/res/");
+			game.setFilepath(System.getProperty("user.home") + "\\" + title);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Operating system not supported");
+			System.exit(0);
+		}
+		
+		game.setWindowIcon("graphics/icons/icon.png");
+		
+		// Create the game's base directory at filepath
+		File dir = new File(game.getFilepath());
+		if (!dir.exists())
+			try
+			{
+		        dir.mkdir();
+		    } 
+			catch(SecurityException se)
+			{
+		        
+		    }
+		
+		// Load the game resources
+		game.getResourceLoader().loadResources();
+		
+		game.getCanvas().setLoadingFont(TITLEINITIALSResources.fontMain);
+		
+		// Create and show the Screen ScreenMainMenu
+		game.getScreenHandler().showScreen(new ScreenTITLEINITIALSMainMenu(game.getScreenHandler()));
+	}
+  
+	public static void main(String[] args)
+	{
+		new TITLEINITIALSCore();
+	}
+}

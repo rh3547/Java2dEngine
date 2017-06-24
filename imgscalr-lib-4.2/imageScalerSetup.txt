@@ -1,0 +1,18 @@
+In order to use this you need to set it up as a library with this project.
+This may be set up already.  If you have errors regarding imgscalr then it is not set up.
+
+1.) Go to your Eclipse preferences
+2.) Expand 'Java', expand 'Build Path', and click 'User Libraries'
+3.) Click 'New...' and name it what you'd like
+4.) Select it and click 'Add Jars...'
+5.) Navigate to the 'imgscalr-lib-4.2' folder in this project
+6.) Select all 3 jar files and click 'Ok'
+7.) Now click 'Project' > 'Properties'
+8.) Select 'Java Build Path'
+9.) Select the 'Libraries' tab
+10.) Click 'Add Library...'
+11.) Select 'User Library' and click 'Next'
+12.) Select the library you created earlier and click 'Finish'
+13.) Click the 'Order and Export' tab
+14.) Check the new library you added earlier and click 'Ok'
+15.) That's it you're done!

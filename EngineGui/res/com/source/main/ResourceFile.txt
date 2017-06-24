@@ -1,0 +1,139 @@
+package com.PACKAGETITLE.main;
+
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+
+import javax.swing.ImageIcon;
+
+import com.engine.input.Key;
+import com.engine.main.Game;
+import com.engine.resources.ResourceLoader;
+import com.engine.world.World;
+import com.PACKAGETITLE.objects.TITLEINITIALSObjects;
+import com.PACKAGETITLE.tiles.TITLEINITIALSTiles;
+import com.PACKAGETITLE.world.TITLEINITIALSTileAdder;
+
+public class TITLEINITIALSResources extends ResourceLoader
+{
+	public TITLEINITIALSResources(Game game)
+	{
+		super(game);
+	}
+	
+	/*-----------------------------------
+	 * Fonts
+	 ----------------------------------*/
+	public static Font fontMain;
+
+	@Override
+	public void loadFonts()
+	{
+		fontMain = registerFont("fonts/CaviarDreams_Bold.ttf", "Caviar Dreams", 16, false);
+	}
+
+	/*-----------------------------
+	 * Backgrounds
+	 ----------------------------*/
+	
+	@Override
+	public void loadBackgrounds()
+	{
+		
+	}
+
+	/*-----------------------------
+	 * GUI
+	 ----------------------------*/
+	
+	@Override
+	public void loadGuiImages()
+	{
+		
+	}
+	
+	/*-----------------------------
+	 * Sprites
+	 ----------------------------*/
+
+	@Override
+	public void loadSpriteImages()
+	{
+	
+	}
+
+	/*-----------------------------
+	 * Other Images
+	 ----------------------------*/
+	
+	@Override
+	public void loadOtherImages()
+	{
+		
+	}
+
+	/*-----------------------------
+	 * Misc.
+	 ----------------------------*/
+	public static World world;
+	
+	@Override
+	public void loadMisc()
+	{
+		TITLEINITIALSTiles.loadTiles();
+		TITLEINITIALSObjects.setupObjects();
+	}
+
+	@Override
+	public void postLoad()
+	{
+		game.getCanvas().setScreenLoaded(true);
+	}
+
+	/*-----------------------------
+	 * Keys
+	 ----------------------------*/
+	public static Key up = new Key(KeyEvent.VK_W);
+	public static Key down = new Key(KeyEvent.VK_S);
+	public static Key left = new Key(KeyEvent.VK_A);
+	public static Key right = new Key(KeyEvent.VK_D);
+	public static Key jump = new Key(KeyEvent.VK_SPACE);
+	public static Key action = new Key(KeyEvent.VK_E);
+	
+	public static Key one = new Key(KeyEvent.VK_1);
+	public static Key two = new Key(KeyEvent.VK_2);
+	public static Key three = new Key(KeyEvent.VK_3);
+	public static Key four = new Key(KeyEvent.VK_4);
+	public static Key five = new Key(KeyEvent.VK_5);
+	
+	public static Key escape = new Key(KeyEvent.VK_ESCAPE);
+	
+	@Override
+	public void checkKey(int keyCode, boolean isPressed)
+	{
+		if (keyCode == up.getKeyCode()) // If up was pressed
+			up.toggle(isPressed);
+		if (keyCode == down.getKeyCode()) // If down was pressed
+			down.toggle(isPressed);
+		if (keyCode == left.getKeyCode()) // If left was pressed
+			left.toggle(isPressed);
+		if (keyCode == right.getKeyCode()) // If right was pressed
+			right.toggle(isPressed);
+		if (keyCode == jump.getKeyCode()) // If the jump key was pressed
+			jump.toggle(isPressed);
+		if (keyCode == action.getKeyCode()) // If the action key was pressed
+			action.toggle(isPressed);
+		if (keyCode == one.getKeyCode())
+			one.toggle(isPressed);
+		if (keyCode == two.getKeyCode())
+			two.toggle(isPressed);
+		if (keyCode == three.getKeyCode())
+			three.toggle(isPressed);
+		if (keyCode == four.getKeyCode())
+			four.toggle(isPressed);
+		if (keyCode == five.getKeyCode())
+			five.toggle(isPressed);
+		if (keyCode == escape.getKeyCode())
+			escape.toggle(isPressed);
+	}
+}

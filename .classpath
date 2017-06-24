@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="CubeoTwo"/>
+	<classpathentry kind="src" path="Darts"/>
+	<classpathentry kind="src" path="ColorGen"/>
+	<classpathentry kind="src" path="MusicPlayer"/>
+	<classpathentry kind="src" path="PixelApocalypse"/>
+	<classpathentry kind="src" path="EngineGui"/>
+	<classpathentry kind="src" path="RestaurantSim"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/ImgSclr"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JLayer"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/XStream"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
